@@ -1,0 +1,61 @@
+buildscript {
+    ext {
+        springBootVersion = '2.0.1.RELEASE'
+    }
+    repositories {
+        maven {url 'http://maven.aliyun.com/nexus/content/groups/public'}
+        maven {url 'https://repo.spring.io/libs-milestone'}
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+
+subprojects {
+    buildscript {
+        ext {
+            springBootVersion = '2.0.1.RELEASE'
+        }
+        repositories {
+            maven {url 'http://maven.aliyun.com/nexus/content/groups/public'}
+            maven {url 'https://repo.spring.io/libs-milestone'}
+            mavenCentral()
+        }
+        dependencies {
+            classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+        }
+
+    }
+
+    ext {
+        springBootVersion = '2.0.1.RELEASE'
+    }
+    repositories {
+        maven {url 'http://maven.aliyun.com/nexus/content/groups/public'}
+        maven {url 'https://repo.spring.io/libs-milestone'}
+        mavenCentral()
+    }
+
+
+
+    apply plugin: 'java'
+    apply plugin: 'idea'
+    apply plugin: 'org.springframework.boot'
+    apply plugin: 'io.spring.dependency-management'
+
+    dependencyManagement {
+        imports {
+            mavenBom 'org.springframework.cloud:spring-cloud-dependencies:Finchley.M9'
+        }
+    }
+
+    group = 'me.beldon'
+    version = '1.0.0-SNAPSHOT'
+    sourceCompatibility = 1.8
+
+    dependencies {
+        compile('org.springframework.boot:spring-boot-starter')
+        testCompile('org.springframework.boot:spring-boot-starter-test')
+    }
+}

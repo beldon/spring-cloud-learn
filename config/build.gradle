@@ -1,0 +1,12 @@
+group 'me.beldon'
+version '${rootProject.version}'
+
+apply plugin: 'java'
+
+sourceCompatibility = 1.8
+
+dependencies {
+    compile('org.springframework.cloud:spring-cloud-starter-netflix-eureka-client')
+    compile('org.springframework.cloud:spring-cloud-config-server')
+    compile('org.springframework.boot:spring-boot-starter-actuator')
+}
