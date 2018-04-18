@@ -1,8 +1,6 @@
-group 'me.beldon'
-version '${rootProject.version}'
+archivesBaseName = 'config'
 
 apply plugin: 'java'
-
 sourceCompatibility = 1.8
 
 dependencies {

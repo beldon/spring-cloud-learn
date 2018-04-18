@@ -1,4 +1,3 @@
 rootProject.name = 'spring-cloud-learn'
-include 'center'
-include 'config'
+include 'center', 'config'
 
