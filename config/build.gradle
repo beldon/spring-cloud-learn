@@ -8,3 +8,33 @@ dependencies {
     compile('org.springframework.cloud:spring-cloud-config-server')
     compile('org.springframework.boot:spring-boot-starter-actuator')
 }
+
+jar {
+    baseName = 'center'
+    version = version
+}
+
+docker {
+    files jar.archivePath
+    baseImage 'frolvlad/alpine-oraclejdk8:slim'
+    maintainer 'beldon beldon@beldon.me'
+    registry 'localhost:5000'
+    useApi false
+}
+
+
+task dockerBuilder(type: Docker) {
+    applicationName = jar.baseName
+    tagVersion = jar.version
+    volume('/tmp')
+    addFile("$project.projectDir/build/libs/${jar.baseName}-${jar.version}.jar","app.jar")
+    entryPoint(["java","-Djava.security.egd=file:/dev/./urandom","-jar",'app.jar'])
+    exposePort(8022)
+    doFirst {
+        copy {
+            from jar
+            into stageDir
+        }
+        print(stageDir.getAbsolutePath()+'----------')
+    }
+}
