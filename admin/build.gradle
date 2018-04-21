@@ -1,0 +1,13 @@
+archivesBaseName = 'admin'
+
+apply plugin: 'java'
+sourceCompatibility = 1.8
+
+dependencies {
+    compile('de.codecentric:spring-boot-admin-server')
+    compile('de.codecentric:spring-boot-admin-server-ui')
+    compile('org.springframework.cloud:spring-cloud-starter-zuul:1.4.4.RELEASE')
+    compile('org.springframework.cloud:spring-cloud-starter-netflix-eureka-client')
+    compile('org.springframework.boot:spring-boot-starter-actuator')
+}
+

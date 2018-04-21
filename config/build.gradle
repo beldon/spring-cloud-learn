@@ -27,7 +27,7 @@ task dockerBuilder(type: Docker) {
     applicationName = jar.baseName
     tagVersion = jar.version
     volume('/tmp')
-    addFile("$project.projectDir/build/libs/${jar.baseName}-${jar.version}.jar","app.jar")
+    addFile("${jar.baseName}-${jar.version}.jar","app.jar")
     entryPoint(["java","-Djava.security.egd=file:/dev/./urandom","-jar",'app.jar'])
     exposePort(8022)
     doFirst {

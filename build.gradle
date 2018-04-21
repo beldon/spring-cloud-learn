@@ -64,6 +64,8 @@ subprojects {
     dependencyManagement {
         imports {
             mavenBom 'org.springframework.cloud:spring-cloud-dependencies:Finchley.M9'
+            mavenBom 'de.codecentric:spring-boot-admin-server:1.5.7'
+            mavenBom 'de.codecentric:spring-boot-admin-server-ui:1.5.7'
         }
     }
 }

@@ -10,3 +10,5 @@ spring:
           uri: https://github.com/beldon/spring-cloud-learn.git
   application:
     name: configCenter
+server:
+  port: 9910
